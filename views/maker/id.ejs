@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><% character.name %></title>
+</head>
+<body>
+    <strong>Name: </strong><%= character.name %>
+    <br>
+    <strong> Attack: </strong><%= character.attack %>
+    <br>
+    <strong> Defense: </strong><%= character.defense %>
+    <br>
+    <strong> Health: </strong><%= character.health %>
+    <br>
+    <strong> Description: </strong><%= character.description %>
+
+    <form action="/maker" method="get">
+    <button>Back to Home</button>
+    </form>
+
+
+</body>
+</html>

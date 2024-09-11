@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Maker</title>
+</head>
+<body>
+    <h1>Welcome to Character Maker!</h1>
+
+    <ul>
+        <% for (c of characters) { %>
+            <li>
+                <p>
+                <strong>Name: </strong><%= c.name %>
+                <br>
+                <a href="/maker/<%= c.id  %>">Details</a>
+                </p>
+            </li>
+        <% } %>
+
+    </ul>
+
+    <br>
+
+    <form action="/maker/new" method="get">
+        <button>Add a New Character</button>
+    </form>
+</body>
+</html>
