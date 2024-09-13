@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Maker</title>
-</head>
-<body>
-    <h1>Welcome to Character Maker!</h1>
+<%- include('partials/head') %>
 
-    <ul>
+
+
+    <div class="d-flex container-fluid ">
         <% for (c of characters) { %>
-            <li>
-                <p>
-                <strong>Name: </strong><%= c.name %>
-                <br>
-                <a href="/maker/<%= c.id  %>">Details</a>
-                </p>
-            </li>
+            
+                <div class="d-flex container-fluid bg-success m-3 p-3 justify-content-between rounded w-25">
+                    
+                    <p class="text-light">
+                    <strong><%= c.name %></strong>
+
+                    </p>
+
+                    <form action="/maker/<%= c.id %>" method="get">
+                        <button class="btn btn-primary">Details</button>
+                    </form>
+
+                </div>
+            
+
         <% } %>
+    </div>
+   
 
-    </ul>
-
-    <br>
+  
 
     <form action="/maker/new" method="get">
-        <button>Add a New Character</button>
+        <button class="btn btn-primary m-3">Add a New Character</button>
     </form>
-</body>
-</html>
+
+    <%- include('partials/footer') %>

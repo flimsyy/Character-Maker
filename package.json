@@ -8,11 +8,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.20.0",
+    "express": "^4.21.0",
     "method-override": "^3.0.0",
     "uuid": "^10.0.0"
-  }
+  },
+  "description": ""
 }

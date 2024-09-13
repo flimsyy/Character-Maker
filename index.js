@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override')
 
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')))
+
 const { v4: uuid } = require('uuid');
 
 app.use(express.json());
@@ -53,7 +56,6 @@ app.post('/maker', (req, res) => {
 app.get('/maker/:id',(req,res) => {
     let { id } = req.params;
     const character = characters.find(c => c.id === id);
-    console.log(character)
     res.render('maker/id', {character})
 })
 

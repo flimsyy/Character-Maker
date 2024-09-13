@@ -1,41 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Character</title>
-</head>
-<body>
-    <h1>Character Menu</h1>
-    <form action="/maker" method="post">
-        <section>
-            <label for="name">Character Name:</label>
-            <input type="text" id="name" name="name" placeholder="name">
-        </section>
+<%- include('../partials/head') %>
 
-        <section>
-            <label for="attack">Attack:</label>
-            <input type="number" id="attack" name="attack" placeholder="attack">
-        </section>
-
-        <section>
-            <label for="defense">Defense:</label>
-            <input type="number" id="defense" name="defense" placeholder="defense">
-        </section>
-
-        <section>
-            <label for="health">Health:</label>
-            <input type="number" id="health" name="health" placeholder="health">
+<form action="/maker" method="post">
+<div class="d-flex m-3 flex-column w-50 around">
         
-        </section>
+            <section class="mb-2">
+                <label for="name" class="form-label ">Character Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="name" max="8" required>
 
-        <section>
-            <label for="description">Description</label>
-            <br>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            <button>Submit</button>
-        </section>
+                
+            </section>
 
-    </form>
-</body>
-</html>
+            <section class="mb-2">
+                <label for="attack" class="form-label " >Attack:</label>
+                <input type="number" id="attack" name="attack" placeholder="attack" class="form-control" max="100" required>
+            </section>
+
+            <section class="mb-2">
+                <label for="defense" class="form-label ">Defense:</label>
+                <input type="number" id="defense" name="defense" placeholder="defense" class="form-control" max="100" required>
+            </section class="mb-2">
+
+            <section class="mb-2">
+                <label for="health" class="form-label ">Health:</label>
+                <input type="number" id="health" name="health" placeholder="health" class="form-control" max="100" required>
+            
+            </section>
+
+            <section class="mb-2">
+                <label for="description" class="form-label ">Description</label>
+                <input type="text" name="description" id="description" class="form-control" placeholder="type here.." max="25" required>
+
+                
+            </section>
+            
+            <button class="btn btn-success me-2 w-25 mb-3">Submit</button>
+
+            
+
+        </div>
+
+</form>
+
+
+
+
+   
+    <%- include('../partials/footer') %>
