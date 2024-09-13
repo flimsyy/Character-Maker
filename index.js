@@ -58,6 +58,44 @@ app.get('/maker/:id',(req,res) => {
 })
 
 
+app.get('/maker/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const character = characters.find(c => c.id === id);
+    res.render('maker/edit', { character });
+})
+
+app.patch('/maker/:id', (req, res) => {
+    // res.send("Updating somthing")
+    console.log(req.params.id)
+    const { id } = req.params;
+    console.log(req.body)
+    // res.send("ALL GOOD!")
+    //name, attack, defense, health, description
+    const newName = req.body.name;
+    const newAttack = req.body.attack;
+    const newDefense = req.body.defense;
+    const newHealth = req.body.health;
+    const newDescription = req.body.description;
+
+
+    const foundCharacter = characters.find(c => c.id === id);
+
+
+    foundCharacter.name = newName;
+    foundCharacter.attack = newAttack;
+    foundCharacter.defense = newDefense;
+    foundCharacter.health = newHealth;
+    foundCharacter.description = newDescription;
+
+    res.redirect(id);
+})
+
+app.delete('/maker/:id', (req, res) => {
+    const { id } = req.params;
+    characters = characters.filter(c => c.id !== id);
+    res.redirect('/maker');
+})
+
 
 
 app.listen(3000, () =>{

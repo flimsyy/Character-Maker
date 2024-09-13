@@ -7,14 +7,21 @@
 </head>
 <body>
     <strong>Name: </strong><%= character.name %>
-    <br>
+    
     <strong> Attack: </strong><%= character.attack %>
-    <br>
+    
     <strong> Defense: </strong><%= character.defense %>
-    <br>
+    
     <strong> Health: </strong><%= character.health %>
-    <br>
+    
     <strong> Description: </strong><%= character.description %>
+
+    <form action="/maker/<%= character.id %>/edit">
+        <button>Edit</button>
+    </form>
+    <form action="/maker/<%= character.id %>?_method=DELETE" method="post">
+        <button>Delete</button>
+    </form>
 
     <form action="/maker" method="get">
     <button>Back to Home</button>

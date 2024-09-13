@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Edit</h1>
+
+    <form action="/maker/<%= character.id %>?_method=PATCH" method="post">
+        
+        <section>
+            <label for="name">Character Name:</label>
+            <input type="text" id="name" name="name" value="<%= character.name %>">
+        </section>
+
+        <section>
+            <label for="attack">ATK:</label>
+            <input type="number" id="attack" name="attack" value="<%= character.attack %>">
+        </section>
+
+        <section>
+            <label for="defense">DEF:</label>
+            <input type="number" id="defense" name="defense" value="<%= character.defense %>">
+        </section>
+
+        <section>
+            <label for="health">HEALTH:</label>
+            <input type="number" id="health" name="health" value="<%= character.health %>">
+        
+        </section>
+
+        <section>
+            <label for="description">Description</label>
+            <br>
+            <textarea name="description" id="description" cols="30" rows="10"><%= character.description %></textarea>
+            
+        </section>
+
+        <button>Save</button>
+       
+    </form>
+    <a href="/maker/<%= character.id %>">Cancel</a>
+    
+</body>
+</html>
