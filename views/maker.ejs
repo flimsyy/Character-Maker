@@ -2,20 +2,27 @@
 
 
 
-    <div class="d-flex container-fluid ">
+
+
+    <div class="d-flex container-fluid flex-wrap ">
         <% for (c of characters) { %>
             
-                <div class="d-flex container-fluid bg-success m-3 p-3 justify-content-between rounded w-25">
+                <div class="d-flex container-fluid m-2 rounded w-25">
                     
-                    <p class="text-light">
-                    <strong><%= c.name %></strong>
+                    <div class="card">
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= c.name %></h5>
+                          <form action="/maker/<%= c.id %>" method="get">
+                            <button class="btn btn-primary">Details</button>
+                        </form>
+    
+                        </div>
+                      </div>
 
-                    </p>
+    
 
-                    <form action="/maker/<%= c.id %>" method="get">
-                        <button class="btn btn-primary">Details</button>
-                    </form>
-
+                    
                 </div>
             
 
