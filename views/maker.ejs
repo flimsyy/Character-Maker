@@ -5,7 +5,7 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3">
                 <a href="/maker/<%= c.id %>" class="text-decoration-none">
                     <div class="card shadow-sm h-100 rounded" style="cursor: pointer;">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg" class="card-img-top rounded-top" alt="<%= c.name %>">
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= c.id  %>" class="card-img-top rounded-top" alt="<%= c.name %>">
                         <div class="card-body text-center">
                             <h5 class="card-title"><%= c.name %></h5>
                         </div>

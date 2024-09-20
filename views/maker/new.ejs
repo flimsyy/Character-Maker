@@ -1,14 +1,14 @@
 <%- include('../partials/head') %>
 
 <form action="/maker" method="post">
-    <div class="container-fluid mt-4 ms-4">
-        <div class="row">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex flex-column">
 
                     <section class="mb-3">
                         <label for="name" class="form-label">Character Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name" max="8" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name" maxlength="8" required>
                     </section>
 
                     <section class="mb-3">
@@ -28,7 +28,7 @@
 
                     <section class="mb-3">
                         <label for="description" class="form-label">Description:</label>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="type here.." max="25" required>
+                        <input type="text" name="description" id="description" class="form-control" placeholder="type here.." maxlength="25" required>
                     </section>
 
                     <button class="btn btn-success w-100">Submit</button>
@@ -39,7 +39,4 @@
     </div>
 </form>
 
-
-
-   
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>
