@@ -33,6 +33,136 @@ let characters = [
         health: 20,
         description: 'I am a default male'
     }
+    ,
+    {
+        id: uuid(),
+        name: 'Lucy',
+        attack: 15,
+        defense: 15,
+        health: 25,
+        description: 'I am a balanced fighter'
+    },
+    {
+        id: uuid(),
+        name: 'John',
+        attack: 25,
+        defense: 5,
+        health: 30,
+        description: 'I am a strong attacker'
+    },
+    {
+        id: uuid(),
+        name: 'Sophia',
+        attack: 18,
+        defense: 12,
+        health: 22,
+        description: 'I am a quick and agile fighter'
+    },
+    {
+        id: uuid(),
+        name: 'Daniel',
+        attack: 12,
+        defense: 18,
+        health: 28,
+        description: 'I rely on defense'
+    },
+    {
+        id: uuid(),
+        name: 'Emma',
+        attack: 22,
+        defense: 8,
+        health: 26,
+        description: 'I am a fast striker'
+    },
+    {
+        id: uuid(),
+        name: 'Michael',
+        attack: 10,
+        defense: 20,
+        health: 20,
+        description: 'I prioritize defense over attack'
+    },
+    {
+        id: uuid(),
+        name: 'Olivia',
+        attack: 20,
+        defense: 10,
+        health: 25,
+        description: 'I balance attack and health'
+    },
+    {
+        id: uuid(),
+        name: 'David',
+        attack: 17,
+        defense: 13,
+        health: 22,
+        description: 'I have balanced stats overall'
+    },
+    {
+        id: uuid(),
+        name: 'Chloe',
+        attack: 14,
+        defense: 16,
+        health: 24,
+        description: 'I am a defensive fighter'
+    },
+    {
+        id: uuid(),
+        name: 'Joshua',
+        attack: 28,
+        defense: 7,
+        health: 20,
+        description: 'I have high attack but low defense'
+    },
+    {
+        id: uuid(),
+        name: 'Ava',
+        attack: 16,
+        defense: 14,
+        health: 26,
+        description: 'I am versatile in both attack and defense'
+    },
+    {
+        id: uuid(),
+        name: 'Liam',
+        attack: 20,
+        defense: 12,
+        health: 18,
+        description: 'I strike fast and defend just enough'
+    },
+    {
+        id: uuid(),
+        name: 'Grace',
+        attack: 18,
+        defense: 15,
+        health: 21,
+        description: 'I focus on balance in fights'
+    },
+    {
+        id: uuid(),
+        name: 'Ethan',
+        attack: 24,
+        defense: 9,
+        health: 23,
+        description: 'I prefer high attack with average health'
+    },
+    {
+        id: uuid(),
+        name: 'Isabella',
+        attack: 13,
+        defense: 17,
+        health: 27,
+        description: 'I am focused on defense and stamina'
+    },
+    {
+        id: uuid(),
+        name: 'Lucas',
+        attack: 21,
+        defense: 12,
+        health: 22,
+        description: 'I am an offensive fighter with decent defense'
+    }
+    
 ]
 
 
@@ -100,7 +230,7 @@ app.delete('/maker/:id', (req, res) => {
 
 
 
-app.listen(3000, () =>{
+app.listen(8080, () =>{
     console.log('Listening to port 3000')
 })
 

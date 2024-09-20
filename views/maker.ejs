@@ -1,39 +1,31 @@
 <%- include('partials/head') %>
-
-
-
-
-
-    <div class="d-flex container-fluid flex-wrap ">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <% for (c of characters) { %>
-            
-                <div class="d-flex container-fluid m-2 rounded w-25">
-                    
-                    <div class="card">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title"><%= c.name %></h5>
-                          <form action="/maker/<%= c.id %>" method="get">
-                            <button class="btn btn-primary">Details</button>
-                        </form>
-    
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3">
+                <a href="/maker/<%= c.id %>" class="text-decoration-none">
+                    <div class="card shadow-sm h-100 rounded" style="cursor: pointer;">
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg" class="card-img-top rounded-top" alt="<%= c.name %>">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><%= c.name %></h5>
                         </div>
-                      </div>
-
-    
-
-                    
-                </div>
-            
-
+                    </div>
+                </a>
+            </div>
         <% } %>
+
+        <!-- Add a New Character card -->
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3">
+            <a href="/maker/new" class="text-decoration-none">
+                <div class="card shadow-sm h-100 rounded" style="cursor: pointer;">
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+                        <h5 class="card-title">Add a New Character</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
-   
+</div>
 
-  
-
-    <form action="/maker/new" method="get">
-        <button class="btn btn-primary m-3">Add a New Character</button>
-    </form>
 
     <%- include('partials/footer') %>
