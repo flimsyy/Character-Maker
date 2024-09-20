@@ -1,52 +1,47 @@
-<%- include('../partials/head') %>
+<%- include('../partials/head') %> <!-- Include head partial -->
 
-    
-<form action="/maker/<%= character.id %>?_method=PATCH" method="post">
-    <div class="container-fluid">
-        <div class="row justify-content-center m-3">
-            <!-- Form inputs -->
-            <div class="col-lg-8 col-md-10 col-sm-12 mb-4">
-                <section class="mb-2">
+<form action="/maker/<%= character.id %>?_method=PATCH" method="post"> <!-- Form for editing a character -->
+    <div class="container-fluid"> <!-- Main container -->
+        <div class="row justify-content-center m-3"> <!-- Centered row -->
+            <div class="col-lg-8 col-md-10 col-sm-12 mb-4"> <!-- Responsive column -->
+                <section class="mb-2"> <!-- Character name input -->
                     <label for="name" class="form-label">Character Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="name" maxlength="8" required value="<%= character.name %>">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name" maxlength="8" required value="<%= character.name %>"> <!-- Input field with default value -->
                 </section>
 
-                <section class="mb-2">
+                <section class="mb-2"> <!-- Character attack input -->
                     <label for="attack" class="form-label">Attack:</label>
-                    <input type="number" id="attack" name="attack" placeholder="attack" class="form-control" max="100" required value="<%= character.attack %>">
+                    <input type="number" id="attack" name="attack" placeholder="attack" class="form-control" max="100" required value="<%= character.attack %>"> <!-- Input field with default value -->
                 </section>
 
-                <section class="mb-2">
+                <section class="mb-2"> <!-- Character defense input -->
                     <label for="defense" class="form-label">Defense:</label>
-                    <input type="number" id="defense" name="defense" placeholder="defense" class="form-control" max="100" required value="<%= character.defense %>">
+                    <input type="number" id="defense" name="defense" placeholder="defense" class="form-control" max="100" required value="<%= character.defense %>"> <!-- Input field with default value -->
                 </section>
 
-                <section class="mb-2">
+                <section class="mb-2"> <!-- Character health input -->
                     <label for="health" class="form-label">Health:</label>
-                    <input type="number" id="health" name="health" placeholder="health" class="form-control" max="100" required value="<%= character.health %>">
+                    <input type="number" id="health" name="health" placeholder="health" class="form-control" max="100" required value="<%= character.health %>"> <!-- Input field with default value -->
                 </section>
 
-                <section class="mb-2">
+                <section class="mb-2"> <!-- Character description input -->
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" name="description" id="description" class="form-control" placeholder="type here.." maxlength="25" required value="<%= character.description %>">
+                    <input type="text" name="description" id="description" class="form-control" placeholder="type here.." maxlength="25" required value="<%= character.description %>"> <!-- Input field with default value -->
                 </section>
             </div>
 
-            <!-- Character avatar -->
-            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center mb-4">
-                <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%=character.id  %>" class="img-fluid rounded" alt="Character Avatar">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center mb-4"> <!-- Character avatar -->
+                <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%=character.id %>" class="img-fluid rounded" alt="Character Avatar"> <!-- Avatar image -->
             </div>
         </div>
 
-        <!-- Save and Cancel buttons -->
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-between mb-3">
-                <button class="btn btn-success w-100 me-2">Save</button>
-                <a href="/maker/<%= character.id %>" class="btn btn-danger w-100">Cancel</a>
+        <div class="row justify-content-center"> <!-- Centered row for buttons -->
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-between mb-3"> <!-- Responsive column -->
+                <button class="btn btn-success w-100 me-2">Save</button> <!-- Save button -->
+                <a href="/maker/<%= character.id %>" class="btn btn-danger w-100">Cancel</a> <!-- Cancel button -->
             </div>
         </div>
     </div>
 </form>
 
-    
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %> <!-- Include footer partial -->

@@ -1,38 +1,32 @@
-<%- include('../partials/head') %>
-<div class="container-fluid mt-4">
-    <!-- Character Card -->
-    <div class="card mx-auto" style="max-width: 100%; max-width: 600px;">
-        <!-- Card Body -->
-        <div class="card-body d-flex flex-column flex-md-row align-items-center">
-            <!-- Character Avatar -->
-            <div class="text-center mb-3 mb-md-0">
-                <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= character.id %>" alt="Character Avatar" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+<%- include('../partials/head') %> <!-- Include head partial -->
+<div class="container-fluid mt-4"> <!-- Main container -->
+    <div class="card mx-auto" style="max-width: 600px;"> <!-- Character card -->
+        <div class="card-body d-flex flex-column flex-md-row align-items-center"> <!-- Card body -->
+            <div class="text-center mb-3 mb-md-0"> <!-- Avatar section -->
+                <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= character.id %>" alt="Character Avatar" class="img-fluid rounded-circle" style="width: 150px; height: 150px;"> <!-- Avatar image -->
             </div>
 
-            <!-- Character Details -->
-            <div class="ms-md-4">
-                <h5 class="card-title text-center text-md-start"><%= character.name %></h5>
-                <p class="card-text mb-1"><strong>Attack:</strong> <%= character.attack %></p>
-                <p class="card-text mb-1"><strong>Defense:</strong> <%= character.defense %></p>
-                <p class="card-text mb-1"><strong>Health:</strong> <%= character.health %></p>
-                <p class="card-text"><strong>Description:</strong> <%= character.description %></p>
+            <div class="ms-md-4"> <!-- Character details section -->
+                <h5 class="card-title text-center text-md-start"><%= character.name %></h5> <!-- Character name -->
+                <p class="card-text mb-1"><strong>Attack:</strong> <%= character.attack %></p> <!-- Attack value -->
+                <p class="card-text mb-1"><strong>Defense:</strong> <%= character.defense %></p> <!-- Defense value -->
+                <p class="card-text mb-1"><strong>Health:</strong> <%= character.health %></p> <!-- Health value -->
+                <p class="card-text"><strong>Description:</strong> <%= character.description %></p> <!-- Description -->
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="d-flex flex-column flex-md-row justify-content-center mt-3">
-            <form action="/maker/<%= character.id %>/edit" class="mb-2 me-md-2">
-                <button class="btn btn-success w-100 w-md-auto">Edit</button>
+        <div class="d-flex flex-column flex-md-row justify-content-center mt-3"> <!-- Action buttons -->
+            <form action="/maker/<%= character.id %>/edit" class="mb-2 me-md-2"> <!-- Edit form -->
+                <button class="btn btn-success w-100 w-md-auto">Edit</button> <!-- Edit button -->
             </form>
-            <form action="/maker/<%= character.id %>?_method=DELETE" method="post" class="mb-2 me-md-2">
-                <button class="btn btn-danger w-100 w-md-auto">Delete</button>
+            <form action="/maker/<%= character.id %>?_method=DELETE" method="post" class="mb-2 me-md-2"> <!-- Delete form -->
+                <button class="btn btn-danger w-100 w-md-auto">Delete</button> <!-- Delete button -->
             </form>
-            <form action="/maker" method="get">
-                <button class="btn btn-primary w-100 w-md-auto">Back to Home</button>
+            <form action="/maker" method="get"> <!-- Back form -->
+                <button class="btn btn-primary w-100 w-md-auto">Back to Home</button> <!-- Back button -->
             </form>
         </div>
     </div>
 </div>
 
-
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %> <!-- Include footer partial -->

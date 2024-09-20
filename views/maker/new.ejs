@@ -1,37 +1,37 @@
-<%- include('../partials/head') %>
+<%- include('../partials/head') %> <!-- Include head partial -->
 
-<form action="/maker" method="post">
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="d-flex flex-column">
+<form action="/maker" method="post"> <!-- Form for creating a new character -->
+    <div class="container mt-4"> <!-- Main container -->
+        <div class="row justify-content-center"> <!-- Centered row -->
+            <div class="col-md-6 col-lg-4"> <!-- Responsive column -->
+                <div class="d-flex flex-column"> <!-- Flex container for form inputs -->
 
-                    <section class="mb-3">
+                    <section class="mb-3"> <!-- Character name input -->
                         <label for="name" class="form-label">Character Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name" maxlength="8" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name" maxlength="8" required> <!-- Input field -->
                     </section>
 
-                    <section class="mb-3">
+                    <section class="mb-3"> <!-- Character attack input -->
                         <label for="attack" class="form-label">Attack:</label>
-                        <input type="number" id="attack" name="attack" placeholder="attack" class="form-control" max="100" required>
+                        <input type="number" id="attack" name="attack" placeholder="attack" class="form-control" max="100" required> <!-- Input field -->
                     </section>
 
-                    <section class="mb-3">
+                    <section class="mb-3"> <!-- Character defense input -->
                         <label for="defense" class="form-label">Defense:</label>
-                        <input type="number" id="defense" name="defense" placeholder="defense" class="form-control" max="100" required>
+                        <input type="number" id="defense" name="defense" placeholder="defense" class="form-control" max="100" required> <!-- Input field -->
                     </section>
 
-                    <section class="mb-3">
+                    <section class="mb-3"> <!-- Character health input -->
                         <label for="health" class="form-label">Health:</label>
-                        <input type="number" id="health" name="health" placeholder="health" class="form-control" max="100" required>
+                        <input type="number" id="health" name="health" placeholder="health" class="form-control" max="100" required> <!-- Input field -->
                     </section>
 
-                    <section class="mb-3">
+                    <section class="mb-3"> <!-- Character description input -->
                         <label for="description" class="form-label">Description:</label>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="type here.." maxlength="25" required>
+                        <input type="text" name="description" id="description" class="form-control" placeholder="type here.." maxlength="25" required> <!-- Input field -->
                     </section>
 
-                    <button class="btn btn-success w-100">Submit</button>
+                    <button class="btn btn-success w-100">Submit</button> <!-- Submit button -->
 
                 </div>
             </div>
@@ -39,4 +39,4 @@
     </div>
 </form>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %> <!-- Include footer partial -->

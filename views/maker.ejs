@@ -1,25 +1,24 @@
-<%- include('partials/head') %>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <% for (c of characters) { %>
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3">
-                <a href="/maker/<%= c.id %>" class="text-decoration-none">
-                    <div class="card shadow-sm h-100 rounded" style="cursor: pointer;">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= c.id  %>" class="card-img-top rounded-top" alt="<%= c.name %>">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><%= c.name %></h5>
+<%- include('partials/head') %> <!-- Include head partial -->
+<div class="container-fluid"> <!-- Main container -->
+    <div class="row justify-content-center"> <!-- Centered row -->
+        <% for (c of characters) { %> <!-- Loop through characters -->
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3"> <!-- Responsive column -->
+                <a href="/maker/<%= c.id %>" class="text-decoration-none"> <!-- Link to character details -->
+                    <div class="card shadow-sm h-100 rounded" style="cursor: pointer;"> <!-- Character card -->
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= c.id %>" class="card-img-top rounded-top" alt="<%= c.name %>"> <!-- Character avatar -->
+                        <div class="card-body text-center"> <!-- Card body -->
+                            <h5 class="card-title"><%= c.name %></h5> <!-- Character name -->
                         </div>
                     </div>
                 </a>
             </div>
         <% } %>
 
-        <!-- Add a New Character card -->
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3">
-            <a href="/maker/new" class="text-decoration-none">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3"> <!-- Add new character card -->
+            <a href="/maker/new" class="text-decoration-none"> <!-- Link to create a new character -->
                 <div class="card shadow-sm h-100 rounded" style="cursor: pointer;">
-                    <div class="card-body text-center d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <h5 class="card-title">Add a New Character</h5>
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-items-center" style="height: 100%;"> <!-- Card body -->
+                        <h5 class="card-title">Add a New Character</h5> <!-- Add character title -->
                     </div>
                 </div>
             </a>
@@ -27,5 +26,4 @@
     </div>
 </div>
 
-
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %> <!-- Include footer partial -->
