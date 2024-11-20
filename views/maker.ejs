@@ -3,9 +3,9 @@
     <div class="row justify-content-center"> <!-- Centered row -->
         <% for (c of characters) { %> <!-- Loop through characters -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-3 mx-2 mb-3"> <!-- Responsive column -->
-                <a href="/maker/<%= c.id %>" class="text-decoration-none"> <!-- Link to character details -->
+                <a href="/maker/<%= c._id %>" class="text-decoration-none"> <!-- Link to character details -->
                     <div class="card shadow-sm h-100 rounded" style="cursor: pointer;"> <!-- Character card -->
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= c.id %>" class="card-img-top rounded-top" alt="<%= c.name %>"> <!-- Character avatar -->
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=<%= c._id %>" class="card-img-top rounded-top" alt="<%= c.name %>"> <!-- Character avatar -->
                         <div class="card-body text-center"> <!-- Card body -->
                             <h5 class="card-title"><%= c.name %></h5> <!-- Character name -->
                         </div>

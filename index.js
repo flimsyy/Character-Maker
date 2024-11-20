@@ -8,9 +8,7 @@ const methodOverride = require('method-override'); // Middleware for supporting 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Import UUID for generating unique IDs
-const { v4: uuid } = require('uuid');
-
+const mongoose = require('mongoose')
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,60 +19,64 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-// Initial array of characters with unique IDs and attributes
-let characters = [
-    { id: uuid(), name: 'Mary', attack: 10, defense: 20, health: 20, description: 'I am a default female' },
-    // ... other characters
-];
+const Character = require('./models/Character')
+
+mongoose.connect("mongodb+srv://Mycko:645n4YH3NXpBfl1F@cluster0.nfll3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>console.log('Connected to MongoDB')).catch((err)=>{'Connection error', err})
 
 // Route to display the character maker page with all characters
-app.get('/maker', (req, res) => {
+app.get('/maker', async (req, res) => {
+    let characters = await Character.find()
     res.render('maker', { characters });
 });
 
 // Route to show the form for creating a new character
-app.get('/maker/new', (req, res) => {
+app.get('/maker/new', async (req, res) => {
     res.render('maker/new');
 });
 
 // Route to handle new character creation
-app.post('/maker', (req, res) => {
+app.post('/maker', async (req, res) => {
     const { name, attack, defense, health, description } = req.body; // Destructure input values
-    characters.push({ name, attack, id: uuid(), defense, health, description }); // Add new character
+    await Character.create({ name, attack, defense, health, description }); // Add new character
     res.redirect('maker'); // Redirect to the character maker page
 });
 
 // Route to display details of a specific character
-app.get('/maker/:id', (req, res) => {
+app.get('/maker/:id', async (req, res) => {
     const { id } = req.params; // Extract ID from request parameters
-    const character = characters.find(c => c.id === id); // Find the character by ID
+    const character = await Character.findById(id)
     res.render('maker/id', { character }); // Render the character detail page
 });
 
 // Route to show the edit form for a specific character
-app.get('/maker/:id/edit', (req, res) => {
+app.get('/maker/:id/edit', async (req, res) => {
     const { id } = req.params; // Extract ID from request parameters
-    const character = characters.find(c => c.id === id); // Find the character by ID
+    const character = await Character.findById(id)
     res.render('maker/edit', { character }); // Render the edit form
 });
 
 // Route to handle character updates
-app.patch('/maker/:id', (req, res) => {
+app.patch('/maker/:id', async (req, res) => {
+    console.log("Updating...")
     const { id } = req.params; // Extract ID from request parameters
-    const foundCharacter = characters.find(c => c.id === id); // Find the character
-    // Update character attributes with new values
-    foundCharacter.name = req.body.name;
-    foundCharacter.attack = req.body.attack;
-    foundCharacter.defense = req.body.defense;
-    foundCharacter.health = req.body.health;
-    foundCharacter.description = req.body.description;
+    const foundCharacter = await Character.findById(id) // Find the character
+
+    
+
+    await Character.findOneAndUpdate(foundCharacter._id, { $set: { name: req.body.name }})
+    await Character.findOneAndUpdate(foundCharacter._id, { $set: { attack: req.body.attack }})
+    await Character.findOneAndUpdate(foundCharacter._id, { $set: { defense: req.body.defense }})
+    await Character.findOneAndUpdate(foundCharacter._id, { $set: { health: req.body.health }})
+    await Character.findOneAndUpdate(foundCharacter._id, { $set: { description: req.body.description }})
     res.redirect(id); // Redirect to the updated character's detail page
 });
 
 // Route to delete a character
-app.delete('/maker/:id', (req, res) => {
+app.delete('/maker/:id', async (req, res) => {
     const { id } = req.params; // Extract ID from request parameters
-    characters = characters.filter(c => c.id !== id); // Remove character from the array
+    const foundCharacter = await Character.findById(id) // Find the character
+
+    await Character.deleteOne(foundCharacter._id)
     res.redirect('/maker'); // Redirect to the character maker page
 });
 
